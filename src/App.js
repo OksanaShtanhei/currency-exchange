@@ -20,7 +20,7 @@ const App = () => {
       fromAmount = amount / exchangeRate
     }
   
-    useEffect(async() => {
+    useEffect(() => {
       fetch(`https://api.exchangerate.host/latest`)
         .then(res => res.json())
         .then(data => {
