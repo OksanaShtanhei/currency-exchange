@@ -1,0 +1,8 @@
+.header{
+    text-align: center;
+    font-family: Verdana;
+    background: rgb(248, 185, 68);
+    text-transform: capitalize;
+    padding: 3vh;
+    letter-spacing: 2px;
+}
