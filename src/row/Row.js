@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Row(props){
+    
     const {
         currency,
         name,
@@ -9,15 +10,15 @@ function Row(props){
         amount,
         onChangeAmount
     } = props
-
+   
     return(
         <div id={name}>
             <input type="number" 
                    className="inp" 
-                   value={amount}
+                   value={amount ? amount : ''}
                    onChange={onChangeAmount}
                    />
-            <select value={currency} 
+            <select value={currency}
                     onChange={onChangeCurrency} 
                     >
                 {selectCurrency.map((el, i) => {

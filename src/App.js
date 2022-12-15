@@ -20,11 +20,10 @@ const App = () => {
       fromAmount = amount / exchangeRate
     }
   
-    useEffect(async() => {
+    useEffect(() => {
       fetch(`https://api.exchangerate.host/latest`)
         .then(res => res.json())
         .then(data => {
-          console.log(data)
           setSelectCurrency([data.base, ...Object.keys(data.rates)])
           setCurrencyRate(data.rates)
           setFromCurrency(data.base)
