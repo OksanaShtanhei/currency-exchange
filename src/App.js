@@ -3,10 +3,9 @@ import './App.css';
 import Row from './row/Row'
 
 const App = () => {
-    const [selectCurrency, setSelectCurrency] = useState([])
-    const [currencyRate, setCurrencyRate] = useState({})
+    const [selectCurrency, setSelectCurrency] = useState()
     const [fromCurrency, setFromCurrency] = useState()
-    const [toCurrency, setToCurrency] = useState([])
+    const [toCurrency, setToCurrency] = useState()
     const [amount, setAmount] = useState(1)
     const [amountCurrency, setAmountCurrency] = useState(true)
     const [exchangeRate, setExchangeRate] = useState()
@@ -25,7 +24,6 @@ const App = () => {
         .then(res => res.json())
         .then(data => {
           setSelectCurrency([data.base, ...Object.keys(data.rates)])
-          setCurrencyRate(data.rates)
           setFromCurrency(data.base)
           setToCurrency(Object.keys(data.rates)[0])
           setExchangeRate(data.rates[Object.keys(data.rates)[0]])
@@ -53,14 +51,14 @@ const App = () => {
         return(
             <div>
                   <form >
-                      <Row currencyRate={currencyRate}
+                      <Row 
                           selectCurrency={selectCurrency}
                           currency={fromCurrency}
                           onChangeCurrency={e => setFromCurrency(e.target.value)}
                           amount={fromAmount}
                           onChangeAmount={onFromChangeAmount}
                         />
-                      <Row currencyRate={currencyRate}
+                      <Row 
                           selectCurrency={selectCurrency}
                           currency={toCurrency}
                           onChangeCurrency={e => setToCurrency(e.target.value)}
